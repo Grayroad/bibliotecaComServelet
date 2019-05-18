@@ -1,11 +1,26 @@
 package com.exemplo.biblioteca.entidades;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Livro {
+@Entity
+public class Livro implements Serializable {
+    
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
     private String titulo;
     private String autor;
     private Integer numPaginas;
+    
+    
+    public Long getId() {
+        return id;
+    }
 
     public Livro() {
     }
